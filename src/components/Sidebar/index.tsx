@@ -50,7 +50,7 @@ export const Sidebar = () => {
       <Menu
         theme='dark'
         mode='inline'
-        defaultSelectedKeys={['article-of-the-day']}
+        defaultSelectedKeys={['most-read']}
         items={navItems}
         onClick={onChangePage}
       />

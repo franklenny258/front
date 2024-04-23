@@ -1,36 +1,23 @@
-import React from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { Layout, theme, Select, DatePicker, DatePickerProps, Tooltip } from 'antd';
 import css from './index.module.css';
 import { LANGUAGES } from '../../utils/constants';
 import dayjs from 'dayjs';
-import { useGetFeed } from '../../api/feed/useGetFeed';
+import { useFeedParamsContext } from '../../context/feedContext';
 
 export const Header = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-  const [date, setDate] = React.useState(dayjs(new Date()).format('YYYY/MM/DD'));
-  const [language, setLanguage] = React.useState('en');
-  const {
-    data: feed,
-    refetch,
-    isLoading: isUserLoading,
-    isError: isUserError,
-  } = useGetFeed({ language, date });
+  const { language, date, updateFeedParams } = useFeedParamsContext();
 
   const handleChangeLanguage = (value: string) => {
-    setLanguage(value);
+    updateFeedParams({ language: value });
   };
 
   const handleChangeDate: DatePickerProps['onChange'] = date => {
-    setDate(date.format('YYYY/MM/DD'));
+    updateFeedParams({ date: date.format('YYYY/MM/DD') });
   };
-
-  // Fetch new data every time date or language is changed
-  React.useEffect(() => {
-    refetch();
-  }, [language, date]);
 
   return (
     <Layout.Header style={{ background: colorBgContainer }} className={css.headerContent}>
