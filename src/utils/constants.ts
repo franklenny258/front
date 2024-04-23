@@ -1,5 +1,5 @@
 /** Took most used lenguages to build app feature, if needed this could be scaled */
-export const LENGUAGES = [
+export const LANGUAGES = [
   { value: 'bn', label: 'বাংলা' },
   { value: 'de', label: 'Deutsch' },
   { value: 'el', label: 'Ελληνικά' },
