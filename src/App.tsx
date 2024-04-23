@@ -2,8 +2,9 @@ import React from 'react';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Outlet } from 'react-router-dom';
 import { Layout, Menu, theme } from 'antd';
+import { Header } from './components/Header';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 
 const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
   (icon, index) => ({
@@ -34,7 +35,7 @@ const App: React.FC = () => {
         <Menu theme='dark' mode='inline' defaultSelectedKeys={['4']} items={items} />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }} />
+        <Header />
         <Content style={{ margin: '24px 16px 0' }}>
           <div
             style={{

@@ -1,0 +1,8 @@
+.headerContent {
+  display: flex;
+  gap: 20px;
+}
+
+.tooltip {
+  padding: 5px;
+}
