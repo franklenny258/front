@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/todays-featured',
+        path: '/article-of-the-day',
         element: <div>FEATURED SIR</div>,
       },
       {
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <div>NEW SIR</div>,
       },
       {
-        path: '/on-this-day',
+        path: '/today-in-history',
         element: <div>DAY SIR</div>,
       },
     ],

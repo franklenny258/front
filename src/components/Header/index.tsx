@@ -7,6 +7,9 @@ import dayjs from 'dayjs';
 import { useGetFeed } from '../../api/feed/useGetFeed';
 
 export const Header = () => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
   const [date, setDate] = React.useState(dayjs(new Date()).format('YYYY/MM/DD'));
   const [language, setLanguage] = React.useState('en');
   const {
@@ -16,24 +19,18 @@ export const Header = () => {
     isError: isUserError,
   } = useGetFeed({ language, date });
 
-  // Fetch new data every time date or language is changed
-  React.useEffect(() => {
-    refetch();
-  }, [language, date]);
-
   const handleChangeLanguage = (value: string) => {
     setLanguage(value);
-    refetch();
   };
 
   const handleChangeDate: DatePickerProps['onChange'] = date => {
     setDate(date.format('YYYY/MM/DD'));
-    refetch();
   };
 
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+  // Fetch new data every time date or language is changed
+  React.useEffect(() => {
+    refetch();
+  }, [language, date]);
 
   return (
     <Layout.Header style={{ background: colorBgContainer }} className={css.headerContent}>
