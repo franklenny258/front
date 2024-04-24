@@ -9,6 +9,7 @@ import css from './index.module.css';
 import { ErrorPage } from '../ErrorPage';
 import { Article } from '../../types/feed';
 import { Spinner } from '../../components/Spinner';
+import { IMG_PLACEHOLDER } from '../../utils/constants';
 
 const { Meta } = Card;
 
@@ -64,11 +65,7 @@ export const MostRead = () => {
               cover={
                 <img
                   alt={article?.titles.normalized}
-                  src={
-                    article?.thumbnail?.source
-                      ? article?.thumbnail?.source
-                      : 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM='
-                  }
+                  src={article?.thumbnail?.source ? article?.thumbnail?.source : IMG_PLACEHOLDER}
                 />
               }
               actions={[
