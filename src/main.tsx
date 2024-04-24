@@ -8,6 +8,7 @@ import { ErrorPage } from './pages/ErrorPage/index.tsx';
 import { ArticleOfTheDay } from './pages/ArticleOfTheDay/index.tsx';
 import { MostRead } from './pages/MostRead/index.tsx';
 import { FeedParamnsProvider } from './context/feedContext.tsx';
+import { ImageOfTheDay } from './pages/ImageOfTheDay/index.tsx';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/image',
-        element: <div>IMAGE SIR</div>,
+        element: <ImageOfTheDay />,
       },
       {
         path: '/news',

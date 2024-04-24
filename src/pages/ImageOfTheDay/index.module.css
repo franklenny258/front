@@ -1,0 +1,11 @@
+.articleCard span:hover {
+  color: inherit !important;
+}
+
+.articleCard {
+  width: 300px;
+}
+
+.title {
+  margin-bottom: 40px;
+}

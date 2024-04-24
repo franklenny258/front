@@ -98,7 +98,7 @@ export interface Article {
   normalizedtitle: string;
 }
 
-interface Image {
+export interface Image {
   title: string;
   thumbnail: Thumbnail;
   image: OriginalImage;
