@@ -50,7 +50,7 @@ export const MostRead = () => {
 
   return (
     <>
-      <h3 className={css.title}>See below a list of the most visited article of {date}!</h3>
+      <h3 className={css.title}>See below a list of the most visited articles of {date}!</h3>
       <Row justify='space-between' gutter={[16, 16]}>
         {paginatedArticles.map((article: Article) => (
           <Col span={4} key={article.pageid}>
