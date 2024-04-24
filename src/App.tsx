@@ -1,13 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Layout, Spin, theme } from 'antd';
+import { Layout, theme } from 'antd';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { useNavigate } from 'react-router-dom';
 import { useFeedParamsContext } from './context/feedContext';
 import { useGetFeed } from './api/feed/useGetFeed';
 import { ErrorPage } from './pages/ErrorPage';
-import css from './App.module.css';
+import { Spinner } from './components/Spinner';
 
 const { Content, Footer } = Layout;
 
@@ -31,14 +31,7 @@ const App: React.FC = () => {
     refetch();
   }, [language, date]);
 
-  if (isLoading)
-    return (
-      <div className={css.spinner}>
-        <Spin size='large'>
-          <div className='content' />
-        </Spin>
-      </div>
-    );
+  if (isLoading) return <Spinner />;
 
   if (isError) return <ErrorPage />;
 

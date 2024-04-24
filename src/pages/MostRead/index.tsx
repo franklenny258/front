@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Row, Pagination } from 'antd';
+import { Card, Col, Row, Pagination, Empty } from 'antd';
 import { useGetFeed } from '../../api/feed/useGetFeed';
 import { useFeedParamsContext } from '../../context/feedContext';
 import { CheckSquareOutlined, CloseSquareOutlined } from '@ant-design/icons';
@@ -8,6 +8,7 @@ import dayjs from 'dayjs';
 import css from './index.module.css';
 import { ErrorPage } from '../ErrorPage';
 import { Article } from '../../types/feed';
+import { Spinner } from '../../components/Spinner';
 
 const { Meta } = Card;
 
@@ -42,6 +43,10 @@ export const MostRead = () => {
     setCurrentPage(1); // Reset to first page when changing page size
     setPageSize(size);
   };
+
+  if (!isFetching && articles.length === 0) return <Empty />;
+  if (isFetching && articles.length === 0) return <Spinner />;
+
   return (
     <>
       <Row justify='space-between' gutter={[16, 16]}>
@@ -74,6 +79,7 @@ export const MostRead = () => {
                   Views: <br />
                   <b>{article?.views}</b>
                 </>,
+                // Check if articles have been read by user
                 <>
                   Seen by you: <br />
                   {!seenArticles?.find(id => id === article.pageid.toString()) ? (
