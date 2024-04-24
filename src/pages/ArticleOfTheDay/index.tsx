@@ -33,13 +33,14 @@ export const ArticleOfTheDay = () => {
         className={css.articleCard}
         title={articleOftheDay?.titles.normalized}
         onClick={() => {
+          if (isFetching) return;
           updateFeedParams({
             seenArticles: [...seenArticles!, articleOftheDay!.pageid.toString()],
           });
           window.open(articleOftheDay?.content_urls.desktop.page, '_blank');
         }}
         loading={isFetching}
-        hoverable
+        hoverable={!isFetching}
         cover={
           <img
             alt={articleOftheDay?.titles.normalized}

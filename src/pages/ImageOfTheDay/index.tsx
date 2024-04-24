@@ -31,13 +31,14 @@ export const ImageOfTheDay = () => {
       <Card
         className={css.articleCard}
         onClick={() => {
+          if (isFetching) return;
           updateFeedParams({
             seenArticles: [...seenArticles!, imageOfTheDay!.wb_entity_id],
           });
           window.open(imageOfTheDay?.file_page, '_blank');
         }}
         loading={isFetching}
-        hoverable
+        hoverable={!isFetching}
         cover={
           <img
             alt={imageOfTheDay?.title}

@@ -56,11 +56,12 @@ export const MostRead = () => {
           <Col span={4} key={article.pageid}>
             <Card
               onClick={() => {
+                if (isFetching) return;
                 updateFeedParams({ seenArticles: [...seenArticles!, article.pageid.toString()] });
                 window.open(article?.content_urls.desktop.page, '_blank');
               }}
               loading={isFetching}
-              hoverable
+              hoverable={!isFetching}
               className={css.articleCard}
               cover={
                 <img
