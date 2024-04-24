@@ -28,14 +28,6 @@ const router = createBrowserRouter([
         path: '/image',
         element: <ImageOfTheDay />,
       },
-      {
-        path: '/news',
-        element: <div>NEW SIR</div>,
-      },
-      {
-        path: '/today-in-history',
-        element: <div>DAY SIR</div>,
-      },
     ],
   },
 ]);

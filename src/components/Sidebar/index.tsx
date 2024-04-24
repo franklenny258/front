@@ -1,12 +1,7 @@
 import { Layout, Menu, MenuProps } from 'antd';
-import {
-  VideoCameraOutlined,
-  StarOutlined,
-  AreaChartOutlined,
-  FileImageOutlined,
-  ReadOutlined,
-} from '@ant-design/icons';
+import { StarOutlined, FileImageOutlined, ReadOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import css from './index.module.css';
 
 type MenuItem = Required<MenuProps>['items'];
 
@@ -21,22 +16,12 @@ export const Sidebar = () => {
     {
       key: 'most-read',
       label: 'Most read articles',
-      icon: <AreaChartOutlined />,
+      icon: <ReadOutlined />,
     },
     {
       key: 'image',
       label: 'Image of the day',
       icon: <FileImageOutlined />,
-    },
-    {
-      key: 'news',
-      label: "Today's news",
-      icon: <ReadOutlined />,
-    },
-    {
-      key: 'today-in-history',
-      label: 'Today in history',
-      icon: <VideoCameraOutlined />,
     },
   ];
 
@@ -46,7 +31,10 @@ export const Sidebar = () => {
 
   return (
     <Layout.Sider breakpoint='lg' collapsedWidth='0'>
-      <div className='demo-logo-vertical' />
+      <div className={css.logo}>
+        <img src='/wiki.svg' alt='wikilogo' />
+        <b className={css.logoText}>WikiConsult</b>
+      </div>
       <Menu
         theme='dark'
         mode='inline'
