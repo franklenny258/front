@@ -4,13 +4,13 @@ import dayjs from 'dayjs';
 type FeedParams = {
   language?: string;
   date?: string;
-  seenArticles: string[];
+  seenArticles?: string[];
 };
 
 type FeedParamsContextType = {
   language?: string;
   date?: string;
-  seenArticles: string[];
+  seenArticles?: string[];
   updateFeedParams: (params: FeedParams) => void;
 };
 

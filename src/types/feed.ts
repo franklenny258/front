@@ -1,4 +1,4 @@
-interface TodaysFeaturedArticle {
+export interface TodaysFeaturedArticle {
   type: string;
   title: string;
   displaytitle: string;

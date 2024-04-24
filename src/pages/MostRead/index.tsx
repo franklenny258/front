@@ -49,12 +49,13 @@ export const MostRead = () => {
 
   return (
     <>
+      <h3 className={css.title}>See below a list of the most visited article of {date}!</h3>
       <Row justify='space-between' gutter={[16, 16]}>
         {paginatedArticles.map((article: Article) => (
           <Col span={4} key={article.pageid}>
             <Card
               onClick={() => {
-                updateFeedParams({ seenArticles: [...seenArticles, article.pageid.toString()] });
+                updateFeedParams({ seenArticles: [...seenArticles!, article.pageid.toString()] });
                 window.open(article?.content_urls.desktop.page, '_blank');
               }}
               loading={isFetching}

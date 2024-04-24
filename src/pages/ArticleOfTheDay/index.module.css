@@ -2,10 +2,8 @@
   color: inherit !important;
 }
 
-.pagination {
-  position: absolute;
-  bottom: 2%;
-  left: 45%;
+.articleCard {
+  width: 300px;
 }
 
 .title {
