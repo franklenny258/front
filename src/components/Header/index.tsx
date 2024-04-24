@@ -24,8 +24,8 @@ export const Header = () => {
       <div>
         <Select
           placeholder='Select a language'
+          className={css.select}
           defaultValue={language}
-          style={{ width: 175 }}
           onChange={handleChangeLanguage}
           options={LANGUAGES}
         />

@@ -1,5 +1,5 @@
 .articleCard span:hover {
-  color: none;
+  color: inherit !important;
 }
 
 .pagination {

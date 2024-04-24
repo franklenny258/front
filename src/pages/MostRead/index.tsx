@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Row, Divider, Pagination } from 'antd';
+import { Card, Col, Row, Pagination } from 'antd';
 import { useGetFeed } from '../../api/feed/useGetFeed';
 import { useFeedParamsContext } from '../../context/feedContext';
 import dayjs from 'dayjs';
@@ -41,7 +41,6 @@ export const MostRead = () => {
     setCurrentPage(1); // Reset to first page when changing page size
     setPageSize(size);
   };
-
   return (
     <>
       <Row justify='space-between' gutter={[16, 16]}>
@@ -58,19 +57,19 @@ export const MostRead = () => {
                   src={
                     article?.thumbnail?.source
                       ? article?.thumbnail?.source
-                      : 'https://ralfvanveen.com/wp-content/uploads//2021/06/Placeholder-_-Begrippenlijst.svg'
+                      : 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM='
                   }
                 />
               }
               actions={[
-                <span key='added'>
+                <>
                   Added: <br />
                   <b>{dayjs(article?.timestamp).format('DD/MM/YYYY')}</b>
-                </span>,
-                <span key='views'>
+                </>,
+                <>
                   Views: <br />
                   <b>{article?.views}</b>
-                </span>,
+                </>,
               ]}
             >
               <Meta title={article?.titles.normalized} description={article?.description} />
@@ -78,7 +77,6 @@ export const MostRead = () => {
           </Col>
         ))}
       </Row>
-      <Divider />
       <Pagination
         className={css.pagination}
         current={currentPage}
