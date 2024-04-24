@@ -1,0 +1,9 @@
+.articleCard span:hover {
+  color: none;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 2%;
+  left: 45%;
+}

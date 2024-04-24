@@ -47,7 +47,7 @@ const App: React.FC = () => {
       <Sidebar />
       <Layout>
         <Header />
-        <Content style={{ margin: '24px 16px 0' }}>
+        <Content style={{ margin: '24px 16px 0', overflow: 'auto' }}>
           <div
             style={{
               padding: 24,
@@ -59,9 +59,7 @@ const App: React.FC = () => {
             <Outlet />
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          Wiki feed app ©{new Date().getFullYear()} Challenge project.
-        </Footer>
+        <Footer style={{ height: 100 }}></Footer>
       </Layout>
     </Layout>
   );

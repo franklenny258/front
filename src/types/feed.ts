@@ -65,7 +65,7 @@ interface MostReadArticles {
   articles: Article[];
 }
 
-interface Article {
+export interface Article {
   views: number;
   rank: number;
   view_history: ArticleViewHistory[];
