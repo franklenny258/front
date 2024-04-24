@@ -42,14 +42,17 @@ export const ArticleOfTheDay = () => {
         loading={isFetching}
         hoverable={!isFetching}
         cover={
-          <img
-            alt={articleOftheDay?.titles.normalized}
-            src={
-              articleOftheDay?.thumbnail?.source
-                ? articleOftheDay?.thumbnail?.source
-                : IMG_PLACEHOLDER
-            }
-          />
+          <div className={css.cardImageWrapper}>
+            <img
+              alt={articleOftheDay?.titles.normalized}
+              src={
+                articleOftheDay?.thumbnail?.source
+                  ? articleOftheDay?.thumbnail?.source
+                  : IMG_PLACEHOLDER
+              }
+              className={css.cardImage}
+            />
+          </div>
         }
         actions={[
           <>
@@ -68,6 +71,7 @@ export const ArticleOfTheDay = () => {
         ]}
       >
         <Meta
+          className={css.cardBody}
           title={articleOftheDay?.description}
           description={`${articleOftheDay?.extract.substring(0, 150)}...`}
         />

@@ -25,6 +25,7 @@ export const ImageOfTheDay = () => {
   if (!isFetching && !imageOfTheDay?.wb_entity_id) return <Empty />;
   if (isFetching && !imageOfTheDay) return <Spinner />;
 
+  // TODO: Make custom card component for better re-use
   return (
     <>
       <h3 className={css.title}>See below the most featured image of {date}!</h3>
@@ -40,12 +41,17 @@ export const ImageOfTheDay = () => {
         loading={isFetching}
         hoverable={!isFetching}
         cover={
-          <img
-            alt={imageOfTheDay?.title}
-            src={
-              imageOfTheDay?.thumbnail?.source ? imageOfTheDay?.thumbnail?.source : IMG_PLACEHOLDER
-            }
-          />
+          <div className={css.cardImageWrapper}>
+            <img
+              alt={imageOfTheDay?.title}
+              src={
+                imageOfTheDay?.thumbnail?.source
+                  ? imageOfTheDay?.thumbnail?.source
+                  : IMG_PLACEHOLDER
+              }
+              className={css.cardImage}
+            />
+          </div>
         }
         actions={[
           <>
@@ -63,7 +69,11 @@ export const ImageOfTheDay = () => {
           </>,
         ]}
       >
-        <Meta title={imageOfTheDay?.title} description={imageOfTheDay?.description?.text} />
+        <Meta
+          className={css.cardBody}
+          title={imageOfTheDay?.title}
+          description={imageOfTheDay?.description?.text}
+        />
       </Card>
     </>
   );
