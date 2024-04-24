@@ -4,11 +4,13 @@ import dayjs from 'dayjs';
 type FeedParams = {
   language?: string;
   date?: string;
+  seenArticles: string[];
 };
 
 type FeedParamsContextType = {
   language?: string;
   date?: string;
+  seenArticles: string[];
   updateFeedParams: (params: FeedParams) => void;
 };
 
@@ -18,6 +20,7 @@ export const FeedParamnsProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const [feedParamns, setFeedParams] = React.useState<FeedParams>({
     language: 'en',
     date: dayjs(new Date()).format('YYYY/MM/DD'),
+    seenArticles: [],
   });
 
   const updateFeedParams = (inputParams: FeedParams) => {

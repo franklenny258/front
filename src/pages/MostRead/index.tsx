@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Col, Row, Pagination } from 'antd';
 import { useGetFeed } from '../../api/feed/useGetFeed';
 import { useFeedParamsContext } from '../../context/feedContext';
+import { CheckSquareOutlined, CloseSquareOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 
 import css from './index.module.css';
@@ -11,7 +12,7 @@ import { Article } from '../../types/feed';
 const { Meta } = Card;
 
 export const MostRead = () => {
-  const { language, date } = useFeedParamsContext();
+  const { language, date, seenArticles, updateFeedParams } = useFeedParamsContext();
   const { data, isFetching, isError } = useGetFeed({
     language,
     date,
@@ -47,7 +48,10 @@ export const MostRead = () => {
         {paginatedArticles.map((article: Article) => (
           <Col span={4} key={article.pageid}>
             <Card
-              onClick={() => window.open(article?.content_urls.desktop.page, '_blank')}
+              onClick={() => {
+                updateFeedParams({ seenArticles: [...seenArticles, article.pageid.toString()] });
+                window.open(article?.content_urls.desktop.page, '_blank');
+              }}
               loading={isFetching}
               hoverable
               className={css.articleCard}
@@ -69,6 +73,14 @@ export const MostRead = () => {
                 <>
                   Views: <br />
                   <b>{article?.views}</b>
+                </>,
+                <>
+                  Seen by you: <br />
+                  {!seenArticles?.find(id => id === article.pageid.toString()) ? (
+                    <CloseSquareOutlined style={{ color: 'red' }} />
+                  ) : (
+                    <CheckSquareOutlined style={{ color: 'green' }} />
+                  )}
                 </>,
               ]}
             >
