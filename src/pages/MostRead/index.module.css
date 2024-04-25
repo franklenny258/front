@@ -9,7 +9,8 @@
 .pagination {
   position: absolute;
   bottom: 2%;
-  left: 45%;
+  left: 15%;
+  width: 50%;
 }
 
 .cardImageWrapper {
