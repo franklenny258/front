@@ -10,7 +10,7 @@ type GetFeedQueryParams = {
 export const FEED_KEY = ['Feed'];
 
 const fetchFeed = async ({ language, date }: GetFeedQueryParams): Promise<FeedType> => {
-  const { data } = await _get(`/feed/v1/wikipedia/${language}/featured/${date}`);
+  const { data } = await _get(`/feed/${language}/featured/${date}`);
   return data;
 };
 
