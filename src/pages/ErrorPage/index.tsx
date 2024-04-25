@@ -1,8 +1,13 @@
 import { useRouteError } from 'react-router-dom';
 import css from './index.module.css';
 
+interface RouteError {
+  statusText?: string;
+  message?: string;
+}
+
 export const ErrorPage = () => {
-  const error = useRouteError();
+  const error = useRouteError() as RouteError;
 
   return (
     <main className={css.main}>

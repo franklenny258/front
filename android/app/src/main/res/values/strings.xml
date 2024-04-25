@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">front-mobile</string>
+    <string name="title_activity_main">front-mobile</string>
+    <string name="package_name">front.mobile.app</string>
+    <string name="custom_url_scheme">front.mobile.app</string>
+</resources>
