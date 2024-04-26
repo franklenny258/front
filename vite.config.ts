@@ -7,6 +7,7 @@ export default defineConfig({
     proxy: {
       '/feed': 'http://host.docker.internal:3000',
     },
+    host: true,
   },
   server: {
     proxy: {
